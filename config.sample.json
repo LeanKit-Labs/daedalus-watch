@@ -1,0 +1,62 @@
+{
+	"watch": {
+		"health.service": {
+			"instances": [
+				{
+					"name": "riak",
+					"options": {
+						"service": "riak"
+					}
+				},
+				{
+					"name": "redis",
+					"options": {
+						"service": "redis"
+					}
+				}
+			],
+			"adapters": {
+				"rabbitmq": {
+					"exchange": "service.health.events"
+				}
+			}
+		},
+		"kv.get": {
+			"instances": [
+				{
+					"name": "settings",
+					"options": {
+						"key": "settings"
+					}
+				}
+			],
+			"adapters": {
+				"rabbitmq": {
+					"exchange": "kv.get.events"
+				}
+			}
+		}
+	},
+	"consul": {
+		"host": "consul-agent1.leankit.com",
+		"port": 8500,
+		"secure": true,
+		"ca": "file://.consul/root.cer",
+		"cert": "file://.consul/consul-agent1.leankit.com/consul-agent1.leankit.com.cer",
+		"key": "file://.consul/consul-agent1.leankit.com/consul-agent1.leankit.com.key"
+	},
+	"rabbitmq": {
+		"connection": {
+			"user": "guest",
+			"pass": "guest",
+			"server": "127.0.0.1",
+			"port": 5672,
+			"vhost": "/"
+		},
+		"exchanges": [
+			{ "name": "service.health.events", "type": "fanout" },
+			{ "name": "kv.get.events", "type": "fanout" }
+		]
+	}
+}
+

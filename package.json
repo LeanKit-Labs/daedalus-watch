@@ -6,7 +6,17 @@
   "scripts": {
     "test": "gulp test"
   },
-  "author": "",
+  "author": "LeanKit",
+  "contributors": [
+    {
+      "name": "Ian Evatt",
+      "url": "https://github.com/ianevatt"
+    },
+    {
+      "name": "Brian Edgerton",
+      "url": "https://github.com/brianedgerton"
+    }
+  ],
   "license": "ISC",
   "devDependencies": {
     "biggulp": "0.0.5",
