@@ -1,0 +1,28 @@
+{
+  "name": "daedalus-watch",
+  "version": "0.0.1",
+  "description": "Simple service for monitoring changes in Consul.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "biggulp": "0.0.5",
+    "chai": "^3.0.0",
+    "gulp": "^3.9.0",
+    "mocha": "^2.2.5",
+    "sinon": "^1.14.1",
+    "sinon-chai": "^2.8.0"
+  },
+  "dependencies": {
+    "configya": "^0.2.1",
+    "consul": "^0.14.0",
+    "lodash": "^3.9.3",
+    "postal": "^1.0.6",
+    "wascally": "^0.2.6",
+    "when": "^3.7.3",
+    "whistlepunk": "^0.3.1"
+  }
+}
