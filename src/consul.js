@@ -23,6 +23,11 @@ function getConsulClient( options ) {
 		lifted = lift( _.get( client, path ) );
 		_.set( client, path, lifted );
 	} );
+
+	if ( options.token ) {
+		client.ACL_TOKEN = options.token;
+	}
+
 	return client;
 }
 

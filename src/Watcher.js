@@ -10,9 +10,12 @@ var channel = require( "postal" ).channel( "watcher" );
 function Watcher( consul, config ) {
 	this.name = config.name;
 	this.type = config.type;
-	this.options = config.options;
+	this.options = consul.ACL_TOKEN ? _.merge( { token: consul.ACL_TOKEN }, config.options ) : config.options;
 	this.adapters = config.adapters;
 	this.lastUpdate = null;
+
+	log.debug( "Watcher Created: %s: %s with options: ", this.type, this.name );
+	log.debug( JSON.stringify( this.options, null, 2 ) );
 
 	var consulMethod = _.get( consul, config.type );
 

@@ -10,6 +10,25 @@ describe( 'Watcher Objects', function() {
 		Watcher = require( '../../src/Watcher.js' );
 	} );
 
+	describe( "when an ACL token is present", function() {
+		var w;
+		before( function() {
+			w = new Watcher( { ACL_TOKEN: "abc" }, {
+				start: false,
+				options: {
+					key: "value"
+				}
+			} );
+		} );
+		it( "should attach it to the watcher options", function() {
+			w.options.should.eql( {
+				token: "abc",
+				key: "value"
+			} );
+		} );
+
+	} );
+
 	describe( 'when the instance to cast to an object', function() {
 		var w;
 		var expected;
