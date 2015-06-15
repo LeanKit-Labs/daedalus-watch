@@ -10,20 +10,20 @@ describe( 'Watcher Objects', function() {
 		Watcher = require( '../../src/Watcher.js' );
 	} );
 
-	describe( "when an ACL token is present", function() {
+	describe( 'when an ACL token is present', function() {
 		var w;
 		before( function() {
-			w = new Watcher( { ACL_TOKEN: "abc" }, {
+			w = new Watcher( { ACL_TOKEN: 'abc' }, {
 				start: false,
 				options: {
-					key: "value"
+					key: 'value'
 				}
 			} );
 		} );
-		it( "should attach it to the watcher options", function() {
+		it( 'should attach it to the watcher options', function() {
 			w.options.should.eql( {
-				token: "abc",
-				key: "value"
+				token: 'abc',
+				key: 'value'
 			} );
 		} );
 
@@ -78,7 +78,7 @@ describe( 'Watcher Objects', function() {
 				channel = postal.channel( 'watcher' );
 
 				var sub = channel.subscribe( {
-					topic: "#",
+					topic: '#',
 					callback: function() {
 						msgReceived = true;
 						done();
@@ -87,12 +87,12 @@ describe( 'Watcher Objects', function() {
 
 				w = new Watcher( {}, {
 					start: false,
-					type: "kv.get",
-					name: "settings"
+					type: 'kv.get',
+					name: 'settings'
 				} );
 
 				var update = {
-					key1: "value1"
+					key1: 'value1'
 				};
 
 				w.lastUpdate = update;
@@ -106,7 +106,7 @@ describe( 'Watcher Objects', function() {
 
 			} );
 
-			it( "should not publish a change message", function() {
+			it( 'should not publish a change message', function() {
 				msgReceived.should.not.be.ok;
 			} );
 
@@ -123,7 +123,7 @@ describe( 'Watcher Objects', function() {
 				channel = postal.channel( 'watcher' );
 
 				var sub = channel.subscribe( {
-					topic: "#",
+					topic: '#',
 					callback: function( data ) {
 						msgReceived = data;
 						done();
@@ -132,25 +132,25 @@ describe( 'Watcher Objects', function() {
 
 				w = new Watcher( {}, {
 					start: false,
-					type: "kv.get",
-					name: "settings"
+					type: 'kv.get',
+					name: 'settings'
 				} );
 
 				previousUpdate = {
-					otherkey: "somethingelse"
+					otherkey: 'somethingelse'
 				};
 
 				w.lastUpdate = previousUpdate;
 
 				update = {
-					key1: "value1"
+					key1: 'value1'
 				};
 
 				w.onChange( update );
 
 			} );
 
-			it( "should publish a change message", function() {
+			it( 'should publish a change message', function() {
 				var serialized = w.toObject();
 				serialized.lastUpdate = previousUpdate;
 
