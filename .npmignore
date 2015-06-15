@@ -1,0 +1,10 @@
+/.consul
+/.vagrant
+/.docker
+/node_modules
+/Vagrantfile
+/Vagrant.sample
+/config.json
+/coverage
+/spec
+/gulpfile.js
